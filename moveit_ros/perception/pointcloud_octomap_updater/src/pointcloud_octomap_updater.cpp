@@ -325,6 +325,7 @@ void PointCloudOctomapUpdater::cloudMsgCallback(const sensor_msgs::msg::PointClo
 
   try
   {
+    tree_->clear();
     /* mark free cells only if not seen occupied in this cloud */
     for (const octomap::OcTreeKey& free_cell : free_cells)
       tree_->updateNode(free_cell, false);
